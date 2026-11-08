@@ -5,8 +5,17 @@
     <title>Team Contribution</title>
 </head>
 <body>
-    <h2>Contribution by: 73352</h2>
+    <h2>Contribution by: <span id="student-id">Loading...</span></h2>
     <p>Added HTML structure and verified database connection configuration.</p>
     <a href="index.html">Back to Task Manager</a>
+
+    <script>
+        fetch('contribution.json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('student-id').textContent = data.contributorStudentId;
+            })
+            .catch(error => console.error('Error fetching JSON:', error));
+    </script>
 </body>
 </html>
